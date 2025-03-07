@@ -1,0 +1,62 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Deploy infra
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "deploy"
+  deploy:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Check out the repository so we can access the code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Set up Terraform
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.6.0
+
+      - name: Create gcp_key.json
+        run: |
+          echo '${{ secrets.GCP_CREDENTIALS_JSON }}' > /tmp/gcp_key.json
+
+      # Set environment variables for api_key, project_id and access_token
+      - name: Set environment variables for api_key and project_id
+        run: |
+          echo "TF_VAR_api_key=${{ vars.API_KEY }}" >> $GITHUB_ENV
+          echo "TF_VAR_project_id=${{ vars.PROJECT_ID }}" >> $GITHUB_ENV
+
+      - name: Initialize Terraform
+        run: |
+          cd terraform/environments/default
+          terraform init \
+            -backend-config="bucket=${{ vars.TF_STATE_BUCKET }}" \
+            -backend-config="prefix=terraform/state" \
+            -backend-config="credentials=/tmp/gcp_key.json"
+
+      - name: Run Terraform plan
+        run: |
+          cd terraform/environments/default
+          terraform plan -var-file=variables.tfvars
+
+      - name: Run Terraform apply
+        run: |
+          cd terraform/environments/default
+          terraform apply -var-file=variables.tfvars -auto-approve
