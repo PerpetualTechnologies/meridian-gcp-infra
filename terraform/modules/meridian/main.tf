@@ -24,13 +24,15 @@ resource "google_storage_bucket_object" "csv" {
   source = "${path.module}/csv/meridian_lite_weekly.csv"
 }
 
-resource "google_colab_schedule" "schedule" {
-  display_name             = "full-schedule"
+resource "google_colab_schedule" "meridian_schedule_perpetual" {
+  display_name             = "meridian-schedule-perpetual"
   location                 = google_colab_runtime_template.meridian_runtime_template_perpetual.location
   allow_queueing           = true
   max_concurrent_run_count = 1
   cron                     = "TZ=America/Lima 0 0 * * *"
-  max_run_count            = 5
+  max_run_count            = 30
+  start_time               = "2025-03-08T18:00:00Z"
+  end_time                 = "2025-04-08T18:00:00Z"
 
   desired_state = "ACTIVE"
 
