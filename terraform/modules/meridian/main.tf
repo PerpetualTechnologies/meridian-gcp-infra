@@ -26,7 +26,7 @@ resource "google_storage_bucket_object" "csv" {
 
 resource "google_colab_schedule" "schedule" {
   display_name             = "full-schedule"
-  location                 = google_colab_runtime_template.my_runtime_template.location
+  location                 = google_colab_runtime_template.meridian_runtime_template_perpetual.location
   allow_queueing           = true
   max_concurrent_run_count = 1
   cron                     = "TZ=America/Lima 0 0 * * *"
@@ -44,15 +44,15 @@ resource "google_colab_schedule" "schedule" {
         generation = google_storage_bucket_object.notebook.generation
       }
 
-      notebook_runtime_template_resource_name = "projects/${google_colab_runtime_template.my_runtime_template.project}/locations/${google_colab_runtime_template.my_runtime_template.location}/notebookRuntimeTemplates/${google_colab_runtime_template.my_runtime_template.name}"
+      notebook_runtime_template_resource_name = "projects/${google_colab_runtime_template.meridian_runtime_template_perpetual.project}/locations/${google_colab_runtime_template.meridian_runtime_template_perpetual.location}/notebookRuntimeTemplates/${google_colab_runtime_template.meridian_runtime_template_perpetual.name}"
       gcs_output_uri                          = "gs://${google_storage_bucket_object.notebook.bucket}"
       service_account                         = "terraform@meridian-mmm-452218.iam.gserviceaccount.com"
     }
   }
 
   depends_on = [
-    google_colab_runtime_template.my_runtime_template,
-    google_storage_bucket.output_bucket,
+    google_colab_runtime_template.meridian_runtime_template_perpetual,
     google_storage_bucket_object.notebook,
+    google_storage_bucket_object.csv,
   ]
 }
