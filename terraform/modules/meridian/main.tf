@@ -24,24 +24,6 @@ resource "google_storage_bucket_object" "csv" {
   source = "${path.module}/csv/meridian_lite_weekly.csv"
 }
 
-data "archive_file" "function_zip" {
-  type        = "zip"
-  source_dir  = "${path.module}/function"
-  output_path = "${path.module}/function.zip"
-}
-
-resource "google_storage_bucket_object" "function_code_zip" {
-  name   = "cloud_function_source.zip"
-  bucket = "meridian-mmm"
-  source = data.archive_file.function_zip.output_path
-}
-
-resource "google_storage_bucket_object" "meridian_index_html" {
-  name   = "meridian-index-html"
-  bucket = "meridian-mmm"
-  source = "${path.module}/html/index.html"
-}
-
 resource "google_colab_schedule" "meridian_schedule_perpetual" {
   display_name             = "meridian-schedule-perpetual"
   location                 = google_colab_runtime_template.meridian_runtime_template_perpetual.location
@@ -74,38 +56,5 @@ resource "google_colab_schedule" "meridian_schedule_perpetual" {
     google_colab_runtime_template.meridian_runtime_template_perpetual,
     google_storage_bucket_object.notebook,
     google_storage_bucket_object.csv,
-  ]
-}
-
-resource "google_cloudfunctions2_function" "list_folders" {
-  name        = "meridian-"
-  location    = "us-west1"
-  description = "Função para listar pastas no bucket e gerar index.html"
-
-  build_config {
-    runtime     = "python311"
-    entry_point = "list_folders"
-
-    source {
-      storage_source {
-        bucket = google_storage_bucket.function_bucket.name
-        object = google_storage_bucket_object.function_code_zip.name
-      }
-    }
-  }
-
-  service_config {
-    max_instance_count = 2
-    available_memory   = "256Mi"
-    timeout_seconds    = 60
-    ingress_settings   = "ALLOW_ALL"
-    environment_variables = {
-      BUCKET_NAME = "meridian-mmm"
-    }
-  }
-
-  depends_on = [
-    google_storage_bucket.function_bucket,
-    google_storage_bucket_object.function_code_zip
   ]
 }
