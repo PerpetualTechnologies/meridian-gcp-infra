@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treinamentos - Google Meridian</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { text-align: center; }
+        .container { max-width: 800px; margin: auto; }
+        .training { margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        .training a { margin-right: 10px; text-decoration: none; color: blue; }
+    </style>
+</head>
+<body>
+    <h1>Treinamentos - Google Meridian</h1>
+    <div class="container" id="trainings">
+        <p>Carregando treinamentos...</p>
+    </div>
+    <script>
+        async function loadTrainings() {
+            const container = document.getElementById("trainings");
+            container.innerHTML = "<p>Carregando...</p>";
+            try {
+                const response = await fetch("https://REGION-PROJECT_ID.cloudfunctions.net/list-folders");
+                const trainings = await response.json();
+                if (trainings.length === 0) {
+                    container.innerHTML = "<p>Nenhum treinamento encontrado.</p>";
+                    return;
+                }
+                container.innerHTML = "";
+                trainings.forEach(training => {
+                    const div = document.createElement("div");
+                    div.classList.add("training");
+                    div.innerHTML = `
+                        <strong>${training.folder}</strong><br>
+                        <a href="${training.url}summary.html" target="_blank">Summary</a>
+                        <a href="${training.url}optimization.html" target="_blank">Optimization</a>
+                    `;
+                    container.appendChild(div);
+                });
+            } catch (error) {
+                console.error("Erro ao carregar treinamentos:", error);
+                container.innerHTML = "<p>Erro ao carregar os treinamentos.</p>";
+            }
+        }
+        loadTrainings();
+    </script>
+</body>
+</html>
