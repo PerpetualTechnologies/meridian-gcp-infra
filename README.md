@@ -14,6 +14,33 @@ Este proyecto implementa una arquitectura en **Google Cloud Platform (GCP)** par
 
 ## 🌐 Arquitectura del Proyecto
 
+```sh
+
+[GitHub Repository]
+        |
+        v
+[Commit & Push Changes]
+        |
+        v
+[GitHub Actions (Pipeline)]
+        |
+        v
+[Terraform Deploys Infrastructure]
+        |
+        v
+[Google Cloud Storage (GCS)] <-- Stores Notebooks & Data --> [Google Colab Enterprise]
+        |
+        v
+[Google Colab Schedule Triggers Execution]
+        |
+        v
+[Notebook Runs & Processes Data]
+        |
+        v
+[Results Stored in GCS]
+
+```
+
 ### 💼 1. Cómputo
 #### Google Colab Runtime Template
 - **Tipo de máquina**: `e2-standard-4`
