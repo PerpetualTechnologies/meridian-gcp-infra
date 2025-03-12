@@ -1,7 +1,7 @@
 # 💻 Proyecto Google Meridian en GCP
 
 ## ✨ Descripción
-Este proyecto implementa una arquitectura en **Google Cloud Platform (GCP)** para la ejecución programada de notebooks de **Google Meridian** mediante **Google Colab Enterprise**. Los datos procesados se almacenan en **Cloud Storage** y se pueden utilizar para análisis y optimización del mercado automotriz en Perú.
+Este proyecto implementa una arquitectura en **Google Cloud Platform (GCP)** para la ejecución programada de notebooks de **Google Meridian** mediante **Google Colab Enterprise**.
 
 ## 🛠️ Tecnologías Utilizadas
 - **Google Colab Enterprise**: Para la ejecución de notebooks en la nube.
