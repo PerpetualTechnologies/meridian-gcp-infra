@@ -4,10 +4,11 @@
 Este proyecto implementa una arquitectura en **Google Cloud Platform (GCP)** para la ejecución programada de notebooks de **Google Meridian** mediante **Google Colab Enterprise**.
 
 ## 🛠️ Tecnologías Utilizadas
-- **Google Colab Enterprise**: Para la ejecución de notebooks en la nube.
-- **Google Cloud Storage (GCS)**: Para almacenamiento de notebooks y datos CSV.
-- **Google Colab Schedule**: Para programar la ejecución automática del notebook.
 - **Terraform**: Para la gestión y despliegue de la infraestructura en GCP.
+- **Google Cloud Storage (GCS)**: Para almacenamiento de notebooks y datos CSV.
+- **Google Colab Enterprise**: 
+- ***Para la ejecución de notebooks en la nube.***
+- ***Para programar la ejecución automática del notebook***
 
 ---
 
@@ -47,18 +48,31 @@ Antes de desplegar el proyecto, asegúrate de tener:
 - **Acceso a GCP** con los permisos adecuados.
 - **Cuenta de servicio** configurada con acceso a Colab Enterprise y GCS.
 
-### 💪 Despliegue
+### 🏗️ Despliegue
+
+El despliegue de la infraestructura puede realizarse de dos formas: **localmente** o a través de **pipeline (GitHub Actions)**.
+
+#### Localmente
+
 ```sh
 # Clona este repositorio
 git clone https://github.com/PerpetualTecnologies/meridian-gcp-infra.git
 cd meridian-gcp-infra
 
-# Inicializa Terraform
+# Para despliegue local:
 terraform init
-
-# Plan Terraform
 terraform plan
-
-# Aplica la configuración
 terraform apply -auto-approve
 ```
+
+#### Pipeline
+
+```sh
+# Para despliegue vía pipeline (GitHub Actions):
+git add .
+git commit -m "Ajustes en la configuración de Terraform"
+git pull
+git push
+```
+
+📌 **Nota:** Al hacer `git push`, la pipeline se activará automáticamente en GitHub Actions y aplicará la configuración en GCP.
