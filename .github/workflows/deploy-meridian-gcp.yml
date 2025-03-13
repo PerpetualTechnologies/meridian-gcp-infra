@@ -45,7 +45,7 @@ jobs:
 
       - name: Initialize Terraform
         run: |
-          cd terraform/environments/default
+          cd terraform
           terraform init \
             -backend-config="bucket=${{ vars.TF_STATE_BUCKET }}" \
             -backend-config="prefix=terraform/state" \
@@ -53,10 +53,10 @@ jobs:
 
       - name: Run Terraform plan
         run: |
-          cd terraform/environments/default
+          cd terraform
           terraform plan -var-file=variables.tfvars
 
       - name: Run Terraform apply
         run: |
-          cd terraform/environments/default
+          cd terraform
           terraform apply -var-file=variables.tfvars -auto-approve
