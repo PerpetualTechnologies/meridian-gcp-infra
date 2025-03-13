@@ -41,6 +41,7 @@ jobs:
         run: |
           echo "TF_VAR_service_account_email=${{ vars.SERVICE_ACCOUNT_EMAIL }}" >> $GITHUB_ENV
           echo "TF_VAR_project_id=${{ vars.PROJECT_ID }}" >> $GITHUB_ENV
+          echo "TF_VAR_bucket_name=${{ vars.BUCKET_NAME }}" >> $GITHUB_ENV
 
       - name: Initialize Terraform
         run: |
