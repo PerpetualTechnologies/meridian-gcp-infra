@@ -1,6 +1,6 @@
 resource "google_colab_runtime_template" "meridian_runtime_template_perpetual" {
-  name         = "meridian-runtime-template-perpetual-2"
-  display_name = "Meridian Runtime Template Perpetual 2"
+  name         = "meridian-runtime-template-perpetual-3"
+  display_name = "Meridian Runtime Template Perpetual 3"
   location     = var.region_name
 
   machine_spec {
