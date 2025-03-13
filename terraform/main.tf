@@ -15,13 +15,13 @@ resource "google_colab_runtime_template" "meridian_runtime_template_perpetual" {
 resource "google_storage_bucket_object" "notebook" {
   name   = "meridian_lite_weekly.ipynb"
   bucket = var.bucket_name
-  source = "${path}/../notebook/meridian_lite_weekly.ipynb"
+  source = "${path.module}/../notebook/meridian_lite_weekly.ipynb"
 }
 
 resource "google_storage_bucket_object" "csv" {
   name   = "meridian_lite_weekly.csv"
   bucket = var.bucket_name
-  source = "${path}/../csv/meridian_lite_weekly.csv"
+  source = "${path.module}/../csv/meridian_lite_weekly.csv"
 }
 
 resource "google_colab_schedule" "meridian_schedule_perpetual" {
