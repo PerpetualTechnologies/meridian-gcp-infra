@@ -32,10 +32,9 @@ jobs:
         run: |
           echo '${{ secrets.GCP_CREDENTIALS_JSON }}' > /tmp/gcp_key.json
 
-      # Set environment variables for api_key, project_id and access_token
-      - name: Set environment variables for api_key and project_id
+      - name: Set environment variables for service_account_email and project_id
         run: |
-          echo "TF_VAR_api_key=${{ vars.API_KEY }}" >> $GITHUB_ENV
+          echo "TF_VAR_service_account_email=${{ vars.SERVICE_ACCOUNT_EMAIL }}" >> $GITHUB_ENV
           echo "TF_VAR_project_id=${{ vars.PROJECT_ID }}" >> $GITHUB_ENV
 
       - name: Initialize Terraform

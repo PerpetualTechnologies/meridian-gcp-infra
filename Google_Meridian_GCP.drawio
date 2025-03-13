@@ -1,6 +1,28 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="26.1.0" pages="4">
-  <diagram name="PIPELINE" id="zKmUaz1M9zcyhKT5BYp9">
+  <diagram id="ygqiq3oBdgNy8tMTnnIn" name="GCP">
     <mxGraphModel dx="880" dy="426" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Rsj3dL-EIwJRunG1osvN-1" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.patternFillRect;fillStyle=diag;step=5;fillStrokeWidth=0.2;fillStrokeColor=#dddddd;shadow=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="320" y="680" width="430" height="590" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;Google Cloud Storage&lt;/font&gt;" link="data:page/id,kEsczLIVPEFL4yCQ2tGk" id="iYUzOtnvTbg7wEWpSSFN-5">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="350" y="790" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="iYUzOtnvTbg7wEWpSSFN-9" value="Google Colab Enterprise" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="350" y="1040" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Rsj3dL-EIwJRunG1osvN-15" value="GCP" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffff88;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="320" y="640" width="430" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="PIPELINE" id="zKmUaz1M9zcyhKT5BYp9">
+    <mxGraphModel dx="1100" dy="533" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -37,88 +59,17 @@
         <mxCell id="xZSJAuJluVSql3U0-4sX-5" value="Terraform Deploys Infrastructure" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="350" y="750" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="xZSJAuJluVSql3U0-4sX-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="xZSJAuJluVSql3U0-4sX-6" target="xZSJAuJluVSql3U0-4sX-7">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="xZSJAuJluVSql3U0-4sX-6" value="Google Cloud Storage (GCS)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="180" y="840" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="xZSJAuJluVSql3U0-4sX-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="xZSJAuJluVSql3U0-4sX-7" target="xZSJAuJluVSql3U0-4sX-8">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="xZSJAuJluVSql3U0-4sX-7" value="Stores Notebooks &amp;amp; Data" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="350" y="840" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="xZSJAuJluVSql3U0-4sX-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="xZSJAuJluVSql3U0-4sX-8" target="xZSJAuJluVSql3U0-4sX-9">
-          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="xZSJAuJluVSql3U0-4sX-8" value="Google Colab Enterprise" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="520" y="840" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="xZSJAuJluVSql3U0-4sX-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="xZSJAuJluVSql3U0-4sX-9" target="xZSJAuJluVSql3U0-4sX-10">
+        <mxCell id="xY-s-Krp8g2zfNenLNA0-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="xY-s-Krp8g2zfNenLNA0-1" target="xZSJAuJluVSql3U0-4sX-1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="xZSJAuJluVSql3U0-4sX-9" value="Google Colab Schedule Triggers Execution" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="520" y="940" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="xZSJAuJluVSql3U0-4sX-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="xZSJAuJluVSql3U0-4sX-10" target="xZSJAuJluVSql3U0-4sX-11">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="xZSJAuJluVSql3U0-4sX-10" value="Notebook Runs &amp;amp; Processes Data" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="520" y="1040" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="xZSJAuJluVSql3U0-4sX-11" value="Results Stored in GCS" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="520" y="1140" width="120" height="60" as="geometry" />
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-  <diagram id="ygqiq3oBdgNy8tMTnnIn" name="GCP">
-    <mxGraphModel dx="880" dy="426" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <mxCell id="iYUzOtnvTbg7wEWpSSFN-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iYUzOtnvTbg7wEWpSSFN-3" target="iYUzOtnvTbg7wEWpSSFN-5">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="iYUzOtnvTbg7wEWpSSFN-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iYUzOtnvTbg7wEWpSSFN-3" target="iYUzOtnvTbg7wEWpSSFN-9">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="iYUzOtnvTbg7wEWpSSFN-3" value="Terraform Deploys Infrastructure" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="350" y="750" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="iYUzOtnvTbg7wEWpSSFN-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="iYUzOtnvTbg7wEWpSSFN-5" target="iYUzOtnvTbg7wEWpSSFN-7">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="iYUzOtnvTbg7wEWpSSFN-5" value="Google Cloud Storage (GCS)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="180" y="840" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="iYUzOtnvTbg7wEWpSSFN-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="iYUzOtnvTbg7wEWpSSFN-7" target="iYUzOtnvTbg7wEWpSSFN-9">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="iYUzOtnvTbg7wEWpSSFN-7" value="Stores Notebooks &amp;amp; Data" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="350" y="840" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="iYUzOtnvTbg7wEWpSSFN-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iYUzOtnvTbg7wEWpSSFN-9" target="iYUzOtnvTbg7wEWpSSFN-11">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="iYUzOtnvTbg7wEWpSSFN-9" value="Google Colab Enterprise" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="520" y="840" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="iYUzOtnvTbg7wEWpSSFN-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iYUzOtnvTbg7wEWpSSFN-11" target="iYUzOtnvTbg7wEWpSSFN-13">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="iYUzOtnvTbg7wEWpSSFN-11" value="Google Colab Schedule Triggers Execution" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="520" y="940" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="iYUzOtnvTbg7wEWpSSFN-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iYUzOtnvTbg7wEWpSSFN-13" target="iYUzOtnvTbg7wEWpSSFN-14">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="iYUzOtnvTbg7wEWpSSFN-13" value="Notebook Runs &amp;amp; Processes Data" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="520" y="1040" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="iYUzOtnvTbg7wEWpSSFN-14" value="Results Stored in GCS" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="520" y="1140" width="120" height="60" as="geometry" />
+        <mxCell id="xY-s-Krp8g2zfNenLNA0-1" value="PIPELINE" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="290" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
@@ -128,6 +79,15 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="KYKIBfHDgE27cLQCvwY7-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="KYKIBfHDgE27cLQCvwY7-2" target="KYKIBfHDgE27cLQCvwY7-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KYKIBfHDgE27cLQCvwY7-2" value="Google Cloud Storage" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="840" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KYKIBfHDgE27cLQCvwY7-3" value="Stores Notebooks &amp;amp; Data" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="940" width="120" height="60" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
@@ -136,6 +96,27 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="aoq7fKEs0TXCKTT5A7D--1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="aoq7fKEs0TXCKTT5A7D--2" target="aoq7fKEs0TXCKTT5A7D--4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aoq7fKEs0TXCKTT5A7D--2" value="Google Colab Enterprise" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="840" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="aoq7fKEs0TXCKTT5A7D--3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="aoq7fKEs0TXCKTT5A7D--4" target="aoq7fKEs0TXCKTT5A7D--6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aoq7fKEs0TXCKTT5A7D--4" value="Google Colab Schedule Triggers Execution" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="940" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="aoq7fKEs0TXCKTT5A7D--5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="aoq7fKEs0TXCKTT5A7D--6" target="aoq7fKEs0TXCKTT5A7D--7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aoq7fKEs0TXCKTT5A7D--6" value="Notebook Runs &amp;amp; Processes Data" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="1040" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="aoq7fKEs0TXCKTT5A7D--7" value="Results Stored in GCS" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="1140" width="120" height="60" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>

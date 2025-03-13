@@ -1,7 +1,7 @@
 resource "google_colab_runtime_template" "meridian_runtime_template_perpetual" {
   name         = "meridian-runtime-template-perpetual-2"
   display_name = "Meridian Runtime Template Perpetual 2"
-  location     = "us-west1"
+  location     = var.region_name
 
   machine_spec {
     machine_type = "e2-standard-4"
@@ -14,14 +14,14 @@ resource "google_colab_runtime_template" "meridian_runtime_template_perpetual" {
 
 resource "google_storage_bucket_object" "notebook" {
   name   = "meridian_lite_weekly.ipynb"
-  bucket = "meridian-mmm"
-  source = "${path.module}/notebook/meridian_lite_weekly.ipynb"
+  bucket = var.bucket_name
+  source = "${path}/../notebook/meridian_lite_weekly.ipynb"
 }
 
 resource "google_storage_bucket_object" "csv" {
   name   = "meridian_lite_weekly.csv"
-  bucket = "meridian-mmm"
-  source = "${path.module}/csv/meridian_lite_weekly.csv"
+  bucket = var.bucket_name
+  source = "${path}/../csv/meridian_lite_weekly.csv"
 }
 
 resource "google_colab_schedule" "meridian_schedule_perpetual" {
@@ -48,7 +48,7 @@ resource "google_colab_schedule" "meridian_schedule_perpetual" {
 
       notebook_runtime_template_resource_name = "projects/${google_colab_runtime_template.meridian_runtime_template_perpetual.project}/locations/${google_colab_runtime_template.meridian_runtime_template_perpetual.location}/notebookRuntimeTemplates/${google_colab_runtime_template.meridian_runtime_template_perpetual.name}"
       gcs_output_uri                          = "gs://${google_storage_bucket_object.notebook.bucket}"
-      service_account                         = "terraform@meridian-mmm-452218.iam.gserviceaccount.com"
+      service_account                         = var.service_account_email
     }
   }
 
