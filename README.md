@@ -7,8 +7,8 @@ Este proyecto implementa una arquitectura en **Google Cloud Platform (GCP)** par
 - **Terraform**: Para la gestión y despliegue de la infraestructura en GCP.
 - **Google Cloud Storage (GCS)**: Para almacenamiento de notebooks y datos CSV.
 - **Google Colab Enterprise**: 
-- ***Para la ejecución de notebooks en la nube.***
-- ***Para programar la ejecución automática del notebook***
+  - ***Para la ejecución de notebooks en la nube.***
+  - ***Para programar la ejecución automática del notebook***
 
 ---
 
@@ -52,6 +52,33 @@ Antes de desplegar el proyecto, asegúrate de tener:
 - **Acceso a GCP** con los permisos adecuados.
 - **Cuenta de servicio** configurada con acceso a Colab Enterprise y GCS.
 
+### ⚙️ Configuración de Variables de Entorno
+Para ejecutar el proyecto, es necesario configurar las siguientes variables de entorno:
+
+- **`service_account_email`**: Correo electrónico de la cuenta de servicio en GCP.
+- **`project_id`**: ID del proyecto en Google Cloud.
+- **`bucket_name`**: Nombre del bucket en Google Cloud Storage donde se almacenarán los notebooks y datos.
+
+#### Configuración local
+Si estás ejecutando el proyecto localmente, define estas variables en el archivo `variables.tfvars`:
+
+```hcl
+service_account_email = "tu-cuenta-de-servicio@gcp.com"
+project_id = "tu-proyecto-id"
+bucket_name = "tu-bucket"
+```
+
+#### Configuración en GitHub Actions
+Si ejecutas el despliegue a través de un pipeline en GitHub Actions, define las variables en la configuración del repositorio:
+
+1. Ve a **Settings** → **Secrets and variables** → **Actions**.
+2. Agrega las siguientes variables:
+   - `SERVICE_ACCOUNT_EMAIL`
+   - `PROJECT_ID`
+   - `BUCKET_NAME`
+
+---
+
 ### 🏗️ Despliegue
 
 El despliegue de la infraestructura puede realizarse de dos formas: **localmente** o a través de **pipeline (GitHub Actions)**.
@@ -65,8 +92,8 @@ cd meridian-gcp-infra
 
 # Para despliegue local:
 terraform init
-terraform plan
-terraform apply -auto-approve
+terraform plan -var-file="variables.tfvars"
+terraform apply -auto-approve -var-file="variables.tfvars"
 ```
 
 #### Pipeline
