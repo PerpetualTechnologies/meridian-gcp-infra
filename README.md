@@ -91,8 +91,6 @@ Si ejecutas el despliegue a través de un pipeline en GitHub Actions, define las
    - `PROJECT_ID`
    - `BUCKET_NAME`
 
----
-
 ### Configuración del notebook (meridian_lite_weekly.ipynb)
 Antes de ejecutar el script, es necesario modificar el nombre del bucket en el código para que coincida con el nombre correcto en su entorno.
 
@@ -101,6 +99,8 @@ BUCKET_NAME = "nombre-del-bucket-correcto"
 ```
 
 Reemplazar `nombre-del-bucket-correcto` con el nombre real de su bucket en Google Cloud Storage.
+
+---
 
 ### 🏗️ Despliegue
 
