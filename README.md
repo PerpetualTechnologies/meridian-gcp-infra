@@ -53,11 +53,12 @@ Antes de desplegar el proyecto, asegúrate de tener:
 - **Cuenta de servicio** configurada con acceso a Colab Enterprise y GCS.
 
 ### ⚙️ Configuración de Variables de Entorno
-Para ejecutar el proyecto, es necesario configurar las siguientes variables de entorno:
+Para ejecutar el proyecto, es necesario configurar las siguientes variables:
 
-- **`service_account_email`**: Correo electrónico de la cuenta de servicio en GCP.
-- **`project_id`**: ID del proyecto en Google Cloud.
-- **`bucket_name`**: Nombre del bucket en Google Cloud Storage donde se almacenarán los notebooks y datos.
+- **`SERVICE_ACCOUNT_EMAIL`**: Correo electrónico de la cuenta de servicio en GCP.
+- **`PROJECT_ID`**: ID del proyecto en Google Cloud.
+- **`BUCKET_NAME`**: Nombre del bucket en Google Cloud Storage donde se almacenarán los notebooks y datos.
+- **`GCP_CREDENTIALS_JSON`**: Archivo JSON de la cuenta de servicio y configurar el proveedor de Google en Terraform.
 
 #### Configuración local
 Si estás ejecutando el proyecto localmente, define estas variables en el archivo `variables.tfvars`:
@@ -68,10 +69,23 @@ project_id = "tu-proyecto-id"
 bucket_name = "tu-bucket"
 ```
 
+Además, deberás descargar el archivo JSON de la cuenta de servicio y configurar el proveedor de Google en Terraform. Guarda el archivo en tu equipo y agrega la siguiente configuración en el provider:
+
+```hcl
+provider "google" {
+  credentials = file("./gcp-credentials.json")
+  project     = var.project_id
+  region      = "us-central1"
+}
+```
+
 #### Configuración en GitHub Actions
 Si ejecutas el despliegue a través de un pipeline en GitHub Actions, define las variables en la configuración del repositorio:
 
 1. Ve a **Settings** → **Secrets and variables** → **Actions**.
+2. Agrega las secret:
+   - `GCP_CREDENTIALS_JSON`
+
 2. Agrega las siguientes variables:
    - `SERVICE_ACCOUNT_EMAIL`
    - `PROJECT_ID`
